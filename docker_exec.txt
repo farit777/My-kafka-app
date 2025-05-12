@@ -1,0 +1,9 @@
+docker exec -it kafka kafka-topics --create --topic test-topic --bootstrap_server localhost:9092 --relication-factor 1 --partitions 1
+
+docker build -t kafka-demo-app .
+
+docker run --rm --network host kafka-demo-app
+
+kubectl apply -f my-kafka-dev.yaml
+kubectl get pods
+kubectl get deployments
